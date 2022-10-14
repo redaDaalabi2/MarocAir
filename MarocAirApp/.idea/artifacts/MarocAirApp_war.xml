@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="MarocAirApp:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>MarocAirApp</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="MarocAirApp-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="MarocAirApp:war exploded" />
+    </root>
+  </artifact>
+</component>
