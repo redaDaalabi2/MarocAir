@@ -2,17 +2,13 @@ package Servlets;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
-import Config.ConnectionProvider;
 import Models.Admin;
+import DAO.AdminDao;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 
 public class AdminServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
-        PrintWriter out = response.getWriter();
+            throws Exception {
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
         String email = request.getParameter("email");
@@ -22,7 +18,9 @@ public class AdminServlet extends HttpServlet {
         admin.setPrenom(prenom);
         admin.setEmail(email);
         admin.setPassword(password);
-        try {
+        AdminDao adminDao = new AdminDao();
+        adminDao.addAdmin(request, response, admin);
+        /*try {
             Connection conn = ConnectionProvider.getCon();
             PreparedStatement pst = conn.prepareStatement("INSERT INTO admin(nom, prenom, email, password) values(?,?,?,?)");
             pst.setString(1, admin.getNom());
@@ -35,21 +33,31 @@ public class AdminServlet extends HttpServlet {
             } else {
                 request.getSession().setAttribute("em", "Admin Not Added");
             }
-            request.getRequestDispatcher("/Views/index.jsp").forward(request, response);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/Views/index.jsp");
+            dispatcher.forward(request, response);
+            //request.getRequestDispatcher("/Views/index.jsp").forward(request, response);
         } catch (Exception ex) {
             out.println( ex.getClass().getName()+": "+ ex.getMessage() );
             System.out.println(ex.getStackTrace());
-        }
+        }*/
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
