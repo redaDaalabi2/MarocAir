@@ -14,7 +14,7 @@
           <element id="module-output" name="MarocAirApp" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="application" name="postgresql-42.4.0" />
+          <element id="library" level="project" name="postgresql-42.5.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">
