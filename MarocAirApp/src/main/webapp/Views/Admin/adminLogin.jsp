@@ -17,7 +17,7 @@
 <body>
 <section class="text-gray-600 body-font">
     <div class="container px-5 py-32 flex items-center w-full">
-        <form class="lg:w-1/2 md:w-1/2 bg-gray-100 rounded-lg p-8 flex justify-center flex-col md:mx-auto w-full mt-10 md:mt-0">
+        <form action="AdminConnectionServlet" method="post" class="lg:w-1/2 md:w-1/2 bg-gray-100 rounded-lg p-8 flex justify-center flex-col md:mx-auto w-full mt-10 md:mt-0">
             <h2 class="text-gray-900 text-center text-lg font-medium title-font mb-5">Connect as admin</h2>
             <div class="relative mb-4">
                 <label for="email" class="leading-7 text-sm text-gray-600">email</label>

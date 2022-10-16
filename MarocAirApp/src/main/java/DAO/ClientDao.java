@@ -1,11 +1,8 @@
 package DAO;
 
-
 import Config.ConnectionProvider;
 import Models.Client;
-
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 public class ClientDao extends Query {
 
@@ -18,10 +15,7 @@ public class ClientDao extends Query {
               preparedStatement.setString(3,client.getEmail());
               preparedStatement.setString(4,client.getPassword());
               preparedStatement.setString(5,client.getPhone());
-
               return preparedStatement.executeUpdate();
        }
-
-
 
 }

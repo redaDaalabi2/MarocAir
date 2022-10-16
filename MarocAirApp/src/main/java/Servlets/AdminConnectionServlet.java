@@ -7,9 +7,10 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet(name = "AdminLoginServlet", value = "/AdminLoginServlet")
-public class AdminLoginServlet extends HttpServlet {
+@WebServlet(name = "AdminConnectionServlet", value = "/AdminConnectionServlet")
+public class AdminConnectionServlet extends HttpServlet {
     AdminDao adminDao = new AdminDao();
+    private String table = "admin";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("./Views/Admin/adminLogin.jsp").forward(request, response);
@@ -19,6 +20,15 @@ public class AdminLoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        try {
+            if(adminDao.signIn(table,email,password)){
+                response.sendRedirect("Views/Admin/adminDash.jsp");
+            }else{
+                response.sendRedirect("Views/Admin/adminLogin.jsp");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

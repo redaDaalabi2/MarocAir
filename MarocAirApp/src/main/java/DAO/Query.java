@@ -12,8 +12,11 @@ public class Query {
            PreparedStatement preparedStatement = ConnectionProvider.getCon().prepareStatement(query);
            preparedStatement.setString(1,email);
            preparedStatement.setString(2,password);
-
            ResultSet resultSet =   preparedStatement.executeQuery();
-           if(resultSet.next()){return true;}else {return false;}
+           if(resultSet.next()){
+               return true;
+           }else {
+               return false;
+           }
     }
 }
