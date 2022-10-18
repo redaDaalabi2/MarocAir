@@ -21,14 +21,13 @@ public class ClientConnectionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("pwd");
-
         try {
             if(clientDao.signIn(table,email,password)){
                 request.setAttribute("session",clientID );
 //                request.getRequestDispatcher("Views/Client/booking.jsp").forward(request, response);
               response.sendRedirect("Views/Client/booking.jsp");
             }else{
-//                response.sendRedirect("Views/Client/booking.jsp");
+              //response.sendRedirect("Views/Client/booking.jsp");
               response.sendRedirect("index.jsp");
             }
         } catch (Exception e) {

@@ -13,7 +13,6 @@ public class Query {
            PreparedStatement preparedStatement = ConnectionProvider.getCon().prepareStatement(query);
            preparedStatement.setString(1,email);
            preparedStatement.setString(2,password);
-
            ResultSet resultSet =   preparedStatement.executeQuery();
            if(resultSet.next()){
               ClientConnectionServlet.clientID =  resultSet.getInt("code");
@@ -24,5 +23,6 @@ public class Query {
     public static PreparedStatement setPreparedStatement(String query) throws Exception {
         PreparedStatement preparedStatement = ConnectionProvider.getCon().prepareStatement(query);
         return preparedStatement;
+
     }
 }

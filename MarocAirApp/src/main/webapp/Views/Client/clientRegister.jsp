@@ -18,7 +18,7 @@
 
 <jsp:include page="../Components/header.jsp"></jsp:include>
 
-<div class="bg-white rounded-lg shadow sm:max-w-md sm:w-full sm:mx-auto sm:overflow-hidden">
+<div class="bg-white rounded-lg shadow sm:max-w-md sm:w-full sm:mx-auto sm:overflow-hidden my-6">
   <div class="px-4 py-8 sm:px-10">
     <div class="relative mt-6">
       <div class="absolute inset-0 flex items-center">
@@ -26,9 +26,9 @@
         </div>
       </div>
       <div class="relative flex justify-center text-sm leading-5">
-                <span class="px-2 text-gray-500 bg-white">
-                    Nouveau compte
-                </span>
+        <span class="px-2 text-gray-500 bg-white">
+            Nouveau compte
+        </span>
       </div>
     </div>
     <div class="mt-6">
@@ -60,11 +60,11 @@
             </div>
           </div>
           <div>
-                    <span class="block w-full rounded-md shadow-sm">
-                        <button  type="submit" class="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
-                            s'inscrire
-                        </button>
-                    </span>
+              <span class="block w-full rounded-md shadow-sm">
+                  <button  type="submit" class="py-2 px-4  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                      s'inscrire
+                  </button>
+              </span>
           </div>
         </div>
       </form>
@@ -72,7 +72,7 @@
   </div>
 
 </div>
-
+<jsp:include page="../Components/footer.jsp"></jsp:include>
 </body>
 </html>
 </body>

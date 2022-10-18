@@ -123,5 +123,7 @@
         </div>
     </section>
 </c:if>
+ <h1>YOU'RE IN</h1>
+ <jsp:include page="../Components/footer.jsp"></jsp:include>
 </body>
 </html>
