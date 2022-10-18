@@ -1,6 +1,7 @@
 package DAO;
 
 import Config.ConnectionProvider;
+import Servlets.ClientConnectionServlet;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +15,14 @@ public class Query {
            preparedStatement.setString(2,password);
 
            ResultSet resultSet =   preparedStatement.executeQuery();
-           if(resultSet.next()){return true;}else {return false;}
+           if(resultSet.next()){
+              ClientConnectionServlet.clientID =  resultSet.getInt("code");
+               return true;
+           }else{return false;}
+    }
+
+    public static PreparedStatement setPreparedStatement(String query) throws Exception {
+        PreparedStatement preparedStatement = ConnectionProvider.getCon().prepareStatement(query);
+        return preparedStatement;
     }
 }

@@ -11,6 +11,7 @@ import java.io.IOException;
 public class ClientConnectionServlet extends HttpServlet {
     ClientDao clientDao = new ClientDao();
     private String table = "client";
+    public static int clientID;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -23,6 +24,8 @@ public class ClientConnectionServlet extends HttpServlet {
 
         try {
             if(clientDao.signIn(table,email,password)){
+                request.setAttribute("session",clientID );
+//                request.getRequestDispatcher("Views/Client/booking.jsp").forward(request, response);
               response.sendRedirect("Views/Client/booking.jsp");
             }else{
 //                response.sendRedirect("Views/Client/booking.jsp");
