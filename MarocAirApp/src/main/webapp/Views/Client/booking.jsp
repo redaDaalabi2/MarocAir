@@ -19,12 +19,13 @@
 <body>
  <jsp:include page="../Components/header.jsp"></jsp:include>
  <section class="text-gray-600 body-font relative">
-     <div class="container px-5 py-24 mx-auto">
-         <div class="flex flex-col text-center w-full mb-12">
-             <h1 class="sm:text-3xl text-2xl font-bold title-font mb-4 text-gray-900">Trouvez un billet d’avion </h1>
+     <div class="container px-5 py-10 mx-auto">
+
+         <div class="flex flex-col text-center w-full mb-4">
+             <h1 class="sm:text-3xl text-2xl font-bold title-font  text-gray-900">Trouvez un billet d’avion </h1>
          </div>
          <form action="../../VolServlet" method="post">
-         <div class="lg:w-1/2 md:w-2/3 mx-auto">
+         <div  class="lg:w-1/2 md:w-2/3 p-6 rounded mx-auto shadow-lg shadow-slate-400">
              <div class="flex flex-wrap -m-2">
 
                  <div class="p-2 w-1/2">
@@ -59,7 +60,7 @@
                  </div>
 
                  <div class="p-2 w-full">
-                     <button style="background: #f59e0b;" class="flex mx-auto text-white border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Rechercher</button>
+                     <button  class="flex mx-auto bg-black  text-white border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Rechercher</button>
                  </div>
              </div>
          </div>
@@ -71,7 +72,7 @@
 <c:if test="${data != NULL}">
     <section class="text-gray-600 body-font overflow-hidden">
         <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-col text-center w-full mb-20">
+            <div class="flex flex-col text-center w-full mb-4">
                 <h1 class="sm:text-4xl text-3xl font-bold title-font mb-2 text-gray-900">Vols valables</h1>
 
             </div>
@@ -106,12 +107,15 @@
                             <span>${vol.date_depart}</span>
                             <span>10:00:00</span>
                         </p>
-
-                        <button class="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">Choisir l'offre
+                        <form action="ReservationServlet" method="post">
+                            <input type="hidden" name="code" value="${vol.flightid}">
+                        <button type="submit"  class="flex items-center mt-auto text-white bg-gray-400 border-0 py-2 px-4 w-full focus:outline-none hover:bg-gray-500 rounded">
+                            Choisir l'offre
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
                             </svg>
                         </button>
+                        </form>
                     </div>
                 </div>
       </c:forEach>

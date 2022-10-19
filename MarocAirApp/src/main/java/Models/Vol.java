@@ -10,6 +10,7 @@ import java.sql.Time;
 @Setter
 
 public class Vol {
+    private int flightid;
     private String ville_depart;
     private String ville_arrivee;
     private Time heure_depart;
