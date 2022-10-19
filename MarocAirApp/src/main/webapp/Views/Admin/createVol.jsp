@@ -15,9 +15,10 @@
     <title>Create Vol</title>
 </head>
 <body>
+<jsp:include page="../Components/header_dash.jsp"></jsp:include>
 <!-- Create Vol -->
 <div>
-  <div class="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0">
+  <div class="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 mt-6">
     <div class="w-full px-16 py-10 overflow-hidden bg-gray-100 rounded-lg lg:max-w-4xl">
       <div class="mb-8">
         <h1 class="font-serif text-3xl font-bold text-center decoration-gray-400">
@@ -82,11 +83,18 @@
             </label>
             <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" required type="number" name="prix" placeholder="Enter le prix" />
           </div>
+          <!-- Stop over aeroport -->
+          <div class="mt-4">
+            <label class="mb-4 block text-sm font-bold text-gray-700">
+              Escal
+            </label>
+            <input class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" type="text" name="stopover_aero" placeholder="Si le vol contient un escale plz entrer le nom de l'aeroport" />
+          </div>
           <div class="flex items-center justify-start mt-4 gap-x-2">
             <button type="submit" class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
               Save
             </button>
-            <a href="http://localhost:8080/MarocAirApp-1.0-SNAPSHOT/Views/Admin/adminDash.jsp" class="text-white bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-gray-600 rounded text-lg">
+            <a href="./getAllVolServlet" class="text-white bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-gray-600 rounded text-lg">
               Cancel
             </a>
           </div>

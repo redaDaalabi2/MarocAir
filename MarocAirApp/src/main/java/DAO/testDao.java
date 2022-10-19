@@ -24,16 +24,15 @@ public class testDao extends Query{
     public static Boolean setReservation(int clientID, int flightID) throws Exception {
         String query = "INSERT INTO reservation(clientid, flightid, state) VALUES(?,?,?) ";
         PreparedStatement preparedStatement = setPreparedStatement(query);
-        preparedStatement.setInt(1,clientID);
+        preparedStatement.setInt(1, clientID);
         preparedStatement.setInt(2, flightID);
-        preparedStatement.setBoolean(3,true);
+        preparedStatement.setBoolean(3, true);
 
-        if(preparedStatement.execute()){
+        if (preparedStatement.execute()) {
             return true;
-        }else{
+        } else {
             return false;
         }
+
     }
-
-
 }

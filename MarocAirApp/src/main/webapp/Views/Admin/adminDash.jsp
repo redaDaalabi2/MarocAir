@@ -6,8 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<head>
+<head>git
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -24,11 +25,12 @@
     scrollbar-width: none !important;
 }
 </style>
+<jsp:include page="../Components/header_dash.jsp"></jsp:include>
 <div class="container max-w-6xl mx-auto mt-8">
     <div class="mb-4">
         <h1 class="font-serif text-3xl font-bold decoration-gray-400">Les vols disponible</h1>
         <div class="flex justify-end">
-            <a href="../../CreateVolServlet" class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
+            <a href="./CreateVolServlet" class="text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">
                 Create Vol
             </a>
         </div>
@@ -41,9 +43,6 @@
                     <tr>
                         <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                             Id
-                        </th>
-                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                            Flight id
                         </th>
                         <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                             Ville de depart
@@ -75,72 +74,69 @@
                     </tr>
                     </thead>
                     <tbody class="bg-white">
+                        <c:forEach var="flight" items="${flights}">
                         <tr>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <div class="flex items-center">
-                                    1
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <div class="text-sm leading-5 text-gray-900">
-                                    AJKKLAZD23324
+                                    ${flight.id}
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <p>
-                                    Casablanca
+                                    ${flight.ville_depart}
                                 </p>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <p>
-                                    Paris
+                                    ${flight.ville_arrivee}
                                 </p>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <p>
-                                    20:00
+                                    ${flight.heure_depart}
                                 </p>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <p>
-                                    12:00
+                                    ${flight.heure_arrivee}
                                 </p>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <p>
-                                    17/10/2022
+                                    ${flight.date_depart}
                                 </p>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <p>
-                                    20/10/2022
+                                    ${flight.date_arrivee}
                                 </p>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <p>
-                                    30
+                                    ${flight.nbre_place}
                                 </p>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <p>
-                                    5000 MAD
+                                    ${flight.prix}
                                 </p>
                             </td>
                             <td class="text-sm font-medium leading-5 text-center whitespace-no-wrap border-b border-gray-200 ">
-                                <a href="http://localhost:8080/MarocAirApp-1.0-SNAPSHOT/Views/Admin/editVol.jsp" class="text-indigo-600 hover:text-indigo-900">
+                                <a href="./UpdateVolServlet?id=${flight.id}" class="text-indigo-600 hover:text-indigo-900">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                     </svg>
                                 </a>
                             </td>
                             <td class="text-sm font-medium leading-5 whitespace-no-wrap border-b border-gray-200 ">
-                                <a href="#">
+                                <a href="./DeleteVolServlet?id=${flight.id}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-600 hover:text-red-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                     </svg>
                                 </a>
                             </td>
                         </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>

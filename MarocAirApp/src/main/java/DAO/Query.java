@@ -15,7 +15,7 @@ public class Query {
            preparedStatement.setString(2,password);
            ResultSet resultSet =   preparedStatement.executeQuery();
            if(resultSet.next()){
-              ClientConnectionServlet.clientID =  resultSet.getInt("code");
+              //ClientConnectionServlet.clientID =  resultSet.getInt("code");
                return true;
            }else{return false;}
     }
