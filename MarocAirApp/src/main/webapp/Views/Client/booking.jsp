@@ -73,25 +73,21 @@
         <div class="container px-5 py-24 mx-auto">
             <div class="flex flex-col text-center w-full mb-20">
                 <h1 class="sm:text-4xl text-3xl font-bold title-font mb-2 text-gray-900">Vols valables</h1>
-                <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical.</p>
-                <div class="flex mx-auto border-2 border-indigo-500 rounded overflow-hidden mt-6">
-                    <button class="py-1 px-4 bg-indigo-500 text-white focus:outline-none">Monthly</button>
-                    <button class="py-1 px-4 focus:outline-none">Annually</button>
-                </div>
+
             </div>
             <div class="flex flex-wrap -m-4">
-      <c:forEach var="employee" items="${data}">
+      <c:forEach var="vol" items="${data}">
                 <div class="p-4 xl:w-1/3 md:w-1/2 w-full">
                     <div class="h-full p-6 rounded-lg shadow-slate-400 shadow-lg flex flex-col relative overflow-hidden">
                         <h2 class="text-sm tracking-widest title-font mb-1 font-medium">PRIX</h2>
                         <h1 class="text-5xl text-gray-900 leading-none flex items-center pb-4 mb-4 border-b border-gray-200">
-                            <span>560 <span class="text-lg ml-1 font-normal text-gray-500">MAD</span></span>
+                            <span>${vol.prix} <span class="text-lg ml-1 font-normal text-gray-500">MAD</span></span>
                         </h1>
                         <div class="flex gap-4">
                             <p class="flex items-center text-gray-600 mb-2">
             <span class="w-4 h-4 mr-2 inline-flex items-center justify-center text-white rounded-full flex-shrink-0">
               <i class="fa-solid text-blue-500 fa-location-dot"></i>
-            </span>${employee.ville_depart}
+            </span>${vol.ville_depart}
                             </p>
                             <p class="flex items-center text-gray-600 mb-2">
                                 <i class="fa-solid fa-plane"></i>
@@ -99,7 +95,7 @@
                             <p class="flex items-center text-gray-600 mb-2">
             <span class="w-4 h-4 mr-2 inline-flex items-center justify-center  text-white rounded-full flex-shrink-0">
               <i class="fa-solid text-blue-500 fa-location-dot"></i>
-            </span>Paris PAR
+            </span>${vol.ville_arrivee}
                             </p>
                         </div>
 
@@ -107,7 +103,7 @@
             <span class="w-4 h-4 mr-2 inline-flex items-center bg-slate-300 justify-center  text-white rounded-full flex-shrink-0">
               <i class="fa-solid fa-calendar text-black"></i>
             </span>
-                            <span>2022-01-11</span>
+                            <span>${vol.date_depart}</span>
                             <span>10:00:00</span>
                         </p>
 
@@ -123,7 +119,6 @@
         </div>
     </section>
 </c:if>
- <h1>YOU'RE IN</h1>
  <jsp:include page="../Components/footer.jsp"></jsp:include>
 </body>
 </html>

@@ -3,6 +3,7 @@ package Models;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.sql.Time;
 
 @Getter
@@ -16,6 +17,8 @@ public class Vol {
     private int nbre_place;
     private float prix;
     private Boolean stopover;
+    private Date date_depart;
+    private Date date_arrivee;
 
 
 }
