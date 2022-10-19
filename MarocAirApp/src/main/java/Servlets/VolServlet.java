@@ -44,7 +44,7 @@ public class VolServlet extends HttpServlet {
                 vol1.setDate_depart(resultSet.getDate("date_depart"));
                 vol1.setDate_arrivee(resultSet.getDate("date_arrivee"));
                 vol1.setPrix(resultSet.getFloat("prix"));
-
+                vol1.setFlightid(resultSet.getInt("id"));
                 ll.add(vol1);
             }
 
