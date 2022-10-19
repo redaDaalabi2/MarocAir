@@ -22,9 +22,10 @@ public class AdminConnectionServlet extends HttpServlet {
         String password = request.getParameter("password");
         try {
             if(adminDao.signIn(table,email,password)){
-                response.sendRedirect("Views/Admin/adminDash.jsp");
+                response.sendRedirect("./getAllVolServlet");
+
             }else{
-                response.sendRedirect("Views/Admin/adminLogin.jsp");
+                response.sendRedirect("./AdminConnectionServlet");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
