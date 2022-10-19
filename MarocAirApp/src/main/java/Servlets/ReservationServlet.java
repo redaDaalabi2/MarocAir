@@ -22,7 +22,12 @@ public class ReservationServlet extends HttpServlet {
           VolDao volDao = new VolDao();
         try {
           volDao.setReservation(ClientConnectionServlet.clientID,flighID);
-            Mail.sendMail("TEST","tst mail","\"muiugfbne@mozmail.com\"");
+              String body = " Maroc AIR:\n" +
+                      "Seat has been reserved ";
+              Mail.sendMail(body,"Reservation confirmation","\"muiugfbne@mozmail.com\"");
+              response.sendRedirect("/Views/Client/message.jsp");
+
+//            response.sendRedirect("/VolServlet");
 
         } catch (Exception e) {
             throw new RuntimeException(e);
